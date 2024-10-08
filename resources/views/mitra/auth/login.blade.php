@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <form method="POST" action="{{ route('login') }}">
+    <form method="POST" action="{{ route('mitra.login') }}">
         @csrf
 
         <div class="relative my-10">
@@ -10,11 +10,11 @@
             <div class="w-full border-t-2 border-black opacity-100"></div>
         </div>
         <div class="relative flex justify-center items-center">
-            <span class="flex items-center px-4 py-1 bg-indigo-500 text-white text-lg font-bold rounded-full shadow-lg">
+            <span class="flex items-center px-4 py-1 bg-red-500 text-white text-lg font-bold rounded-full shadow-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                User Login
+                Mitra Login
             </span>
         </div>
         </div>
@@ -60,8 +60,8 @@
 
         <div class="flex items-center justify-end mt-4">
             <h2 class="mr-2">Belum buat akun?</h2>
-            @if (Route::has('register'))
-            <a href="{{ route('register') }}" class="underline text-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
+            @if (Route::has('mitra.register'))
+            <a href="{{ route('mitra.register') }}" class="underline text-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800">
                 {{ __('Buat akun') }}
             </a>
             @endif

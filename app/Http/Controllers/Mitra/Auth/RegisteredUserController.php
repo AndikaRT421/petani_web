@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Mitra\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
+use App\Models\Mitra;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -19,7 +19,7 @@ class RegisteredUserController extends Controller
      */
     public function create(): View
     {
-        return view('auth.register');
+        return view('mitra.auth.register');
     }
 
     /**
@@ -30,14 +30,14 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'username' => ['required', 'string', 'max:255', 'unique:'.User::class],
+            'username' => ['required', 'string', 'max:255', 'unique:'.Mitra::class],
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.Mitra::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'phone' => ['required', 'string', 'max:255', 'unique:'.User::class],
+            'phone' => ['required', 'string', 'max:255'],
         ]);
 
-        $user = User::create([
+        $mitra = Mitra::create([
             'username' => $request->username,
             'name' => $request->name,
             'email' => $request->email,
@@ -45,10 +45,10 @@ class RegisteredUserController extends Controller
             'phone' => $request->phone,
         ]);
 
-        event(new Registered($user));
+        event(new Registered($mitra));
 
-        Auth::login($user);
+        Auth::guard('mitra')->login($mitra);
 
-        return redirect(route('public.dashboard', absolute: false));
+        return redirect(route('mitra.dashboard', absolute: false));
     }
 }

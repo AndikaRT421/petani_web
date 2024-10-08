@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('mitra.register') }}">
         @csrf
 
         <div class="relative my-10">
@@ -7,11 +7,11 @@
             <div class="w-full border-t-2 border-black opacity-100"></div>
         </div>
         <div class="relative flex justify-center items-center">
-            <span class="flex items-center px-4 py-1 bg-indigo-500 text-white text-lg font-bold rounded-full shadow-lg">
+            <span class="flex items-center px-4 py-1 bg-red-500 text-white text-lg font-bold rounded-full shadow-lg">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                User Register
+                Mitra Register
             </span>
         </div>
         </div>
@@ -68,7 +68,7 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('login') }}">
+            <a class="underline text-lg text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('mitra.login') }}">
                 {{ __('Sudah punya akun?') }}
             </a>
 
