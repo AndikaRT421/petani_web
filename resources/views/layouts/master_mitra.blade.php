@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.css" rel="stylesheet" />
 </head>
 <body>
-    @include('navbar') <!-- Include navbar -->
+    @include('navbar_mitra') <!-- Include navbar -->
     @yield('content')
     @include('footer') <!-- Include footer -->
 

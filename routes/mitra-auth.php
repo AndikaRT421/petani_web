@@ -59,4 +59,8 @@ Route::prefix('mitra')->middleware('auth:mitra')->group(function () {
 
     Route::post('logout', [LoginController::class, 'destroy'])
         ->name('mitra.logout');
+    
+    Route::get('/product', function () {
+        return view('mitra.add_product');
+    })->name('mitra.add_product');
 });

@@ -2,7 +2,7 @@
     <div class="w-full mx-auto max-w-screen-xl p-4 md:flex md:items-center md:justify-between">
       <span class="text-sm text-black sm:text-center dark:text-gray-400">© 2024 <a href="https://github.com/malvinlh/PBKK-C" class="hover:underline hover:text-white text-black">Faffi™</a>. All Rights Reserved.
     </span>
-    <ul class="flex flex-wrap items-center mt-3 text-sm font-medium text-black dark:text-gray-400 sm:mt-0">
+    <ul class="hidden md:flex flex-wrap items-center mt-3 text-sm font-medium text-black dark:text-gray-400 sm:mt-0">
         <li>
             <a href="#" class="hover:underline hover:text-white text-black me-4 md:me-6">About</a>
         </li>
