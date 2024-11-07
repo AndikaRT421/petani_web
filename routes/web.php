@@ -17,5 +17,9 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get(('/belanja'), function () {
+    return view('public.shopping');
+})->name('belanja');
+
 require __DIR__.'/auth.php';
 require __DIR__.'/mitra-auth.php';

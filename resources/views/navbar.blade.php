@@ -16,13 +16,13 @@
                 </div>
                 <ul class="py-2" aria-labelledby="user-menu-button">
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Dashboard</a>
+                        <a href="{{ route('belanja') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Belanja</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Settings</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Prediksi Panen</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Earnings</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cek Tanaman</a>
                     </li>
                     <li>
                         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
@@ -36,13 +36,10 @@
         <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
             <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border-4 border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
                 <li>
-                    <a href="#" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Beranda</a>
+                    <a href="{{ route('dashboard') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Beranda</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Belanja</a>
-                </li>
-                <li>
-                    <a href="#" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Jual Panen</a>
+                    <a href="{{ route('belanja') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Belanja</a>
                 </li>
                 <li>
                     <a href="#" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Prediksi Panen</a>
