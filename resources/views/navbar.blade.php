@@ -19,7 +19,7 @@
                         <a href="{{ route('belanja') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Belanja</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Prediksi Panen</a>
+                        <a href="{{ route('panen') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Prediksi Panen</a>
                     </li>
                     <li>
                         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cek Tanaman</a>
@@ -42,7 +42,7 @@
                     <a href="{{ route('belanja') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Belanja</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Prediksi Panen</a>
+                    <a href="{{ route('panen') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Prediksi Panen</a>
                 </li>
                 <li>
                     <a href="#" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Cek Tanaman</a>

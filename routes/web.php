@@ -21,5 +21,9 @@ Route::get(('/belanja'), function () {
     return view('public.shopping');
 })->name('belanja');
 
+Route::get(('/panen'), function () {
+    return view('public.crop_prediction');
+})->name('panen');
+
 require __DIR__.'/auth.php';
 require __DIR__.'/mitra-auth.php';
