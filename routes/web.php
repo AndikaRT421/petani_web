@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PotatoDiseaseController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -24,6 +25,12 @@ Route::get(('/belanja'), function () {
 Route::get(('/panen'), function () {
     return view('public.crop_prediction');
 })->name('panen');
+
+Route::get(('/cek_tanaman'), function () {
+    return view('public.potatodisease_prediction');
+})->name('cek_tanaman');
+
+Route::post('/cek_tanaman/hasil', [PotatoDiseaseController::class, 'detect']);
 
 require __DIR__.'/auth.php';
 require __DIR__.'/mitra-auth.php';

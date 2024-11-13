@@ -22,7 +22,7 @@
                         <a href="{{ route('panen') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Prediksi Panen</a>
                     </li>
                     <li>
-                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cek Tanaman</a>
+                        <a href="{{ route('cek_tanaman') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cek Tanaman</a>
                     </li>
                     <li>
                         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
@@ -45,7 +45,7 @@
                     <a href="{{ route('panen') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Prediksi Panen</a>
                 </li>
                 <li>
-                    <a href="#" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Cek Tanaman</a>
+                    <a href="{{ route('cek_tanaman') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Cek Tanaman</a>
                 </li>
             </ul>
         </div>
