@@ -4,25 +4,25 @@
 
 <div class="max-w-4xl mx-auto mt-10 p-8 bg-gradient-to-r from-green-200 to-yellow-100 border-gray-200 dark:bg-gray-900 rounded-xl shadow-md">
     <h2 class="text-3xl font-extrabold text-gray-800 mb-6 text-center">Tambah Produk</h2>
-    <form id="product-form" action="#" method="POST" enctype="multipart/form-data">
-        @csrf <!-- Ensure to include CSRF token for security -->
+    <form id="product-form" action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data">
+        @csrf 
         <div class="lg:flex lg:space-x-8">
             <!-- Bagian Detail Produk -->
             <div class="w-full lg:w-2/3 mb-6 lg:mb-0">
                 <!-- Nama Produk -->
                 <div class="mb-5">
-                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="nama-produk">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="item_name">
                         Nama Produk
                     </label>
-                    <input type="text" id="nama-produk" name="nama_produk" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Nama produk" required>
+                    <input type="text" id="item_name" name="item_name" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Nama produk" required>
                 </div>
 
                 <!-- Jenis Produk -->
                 <div class="mb-5">
-                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="jenis-produk">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="item_type">
                         Jenis Produk
                     </label>
-                    <select id="jenis-produk" name="jenis_produk" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                    <select id="item_type" name="item_type" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" required>
                         <option value="">Pilih Jenis Produk</option>
                         <option value="Pupuk dan Vitamin">Pupuk dan Vitamin</option>
                         <option value="Benih">Benih</option>
@@ -33,56 +33,62 @@
 
                 <!-- Harga -->
                 <div class="mb-5">
-                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="harga">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="price">
                         Harga (Rp)
                     </label>
-                    <input type="number" id="harga" name="harga" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Harga produk" required>
+                    <input type="number" id="price" name="price" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Harga produk" required>
                     <span id="formattedHarga" class="block text-gray-700 mt-2"></span>
                 </div>
 
                 <!-- Stok -->
                 <div class="mb-5">
-                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="stok">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="stock">
                         Stok
                     </label>
-                    <input type="number" id="stok" name="stok" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Jumlah stok" required>
+                    <input type="number" id="stock" name="stock" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Jumlah stok" required>
                 </div>
 
                 <!-- Satuan -->
-                <div class="mb-5">
+                <!-- <div class="mb-5">
                     <label class="block text-gray-700 text-sm font-semibold mb-2" for="satuan">
                         Satuan
                     </label>
                     <input type="text" id="satuan" name="satuan" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Satuan produk (contoh: kg, liter)" required>
-                </div>
+                </div> -->
 
                 <!-- Deskripsi -->
                 <div class="mb-5">
-                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="deskripsi">
+                    <label class="block text-gray-700 text-sm font-semibold mb-2" for="description">
                         Deskripsi Produk
                     </label>
-                    <textarea id="deskripsi" name="deskripsi" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Deskripsi produk" rows="4" required></textarea>
+                    <textarea id="description" name="description" class="w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" placeholder="Deskripsi produk" rows="4" required></textarea>
                 </div>
             </div>
 
             <!-- Bagian Foto Produk -->
             <div class="w-full lg:w-1/3 mb-6 lg:mb-0">
                 <div class="mb-5">
-                    <label class="block text-black text-sm font-semibold mb-2" for="foto-produk">
+                    <label class="block text-black text-sm font-semibold mb-2" for="photo">
                         Foto Produk
                     </label>
-                    <input type="file" id="foto-produk" name="foto_produk" class="w-full px-4 py-2 border border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" accept="image/*" required>
+                    <input type="file" id="photo" name="photo" class="w-full px-4 py-2 border border-gray-500 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400" accept="image/*" required>
                 </div>
 
-                <!-- Preview Foto (Optional) -->
+                <!-- Preview Foto -->
                 <div class="mb-6" id="preview-container">
                     <label class="block text-black text-sm font-semibold mb-2">
                         Preview Foto Produk
                     </label>
                     <div class="w-full h-80 border-2 border-dashed border-black rounded-lg flex items-center justify-center text-black">
                         <span id="preview-text">Foto belum diunggah</span>
-                        <img id="preview-image" src="#" alt="Preview Produk" class="hidden w-full h-full object-cover rounded-lg">
+                        <img id="preview-image" src="#" alt="Preview Produk" class="hidden w-full h-full object-contain rounded-lg">
                     </div>
+                </div>
+
+                <div class="flex justify-between items-center mt-2">
+                    <button type="button" id="remove-photo" class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-4 rounded">
+                        Hapus Foto
+                    </button>
                 </div>
             </div>
         </div>
@@ -99,7 +105,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    document.getElementById('foto-produk').addEventListener('change', function(event) {
+    document.getElementById('photo').addEventListener('change', function(event) {
         const file = event.target.files[0];
         
         // Pengecekan format gambar
@@ -123,29 +129,43 @@
     });
 
     document.getElementById('product-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
+        event.preventDefault();
 
-        // Assuming that your form is validated and the product upload is successful
         Swal.fire({
-            title: 'Produk Berhasil Ditambahkan!',
-            text: 'Produk Anda telah berhasil ditambahkan ke sistem.',
-            icon: 'success',
-            confirmButtonText: 'Kembali ke Dashboard',
-            confirmButtonColor: '#0000FF'
+            title: 'Apakah Anda yakin?',
+            text: 'Pastikan semua data telah diisi dengan benar sebelum menambahkan produk.',
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Ya, Tambahkan!',
+            cancelButtonText: 'Batal',
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = '/mitra/dashboard';
+                // Submit the form
+                this.submit(); // Allow form submission to proceed
             }
         });
     });
 
-    const hargaInput = document.getElementById('harga');
+    const hargaInput = document.getElementById('price');
     const formattedHarga = document.getElementById('formattedHarga');
 
     hargaInput.addEventListener('input', function (e) {
         let value = this.value;
         let formattedValue = new Intl.NumberFormat('id-ID').format(value); // Format angka dengan pemisah titik
         formattedHarga.textContent = `Rp ${formattedValue}`;
+    });
+
+    document.getElementById('remove-photo').addEventListener('click', function () {
+        const previewImage = document.getElementById('preview-image');
+        const previewText = document.getElementById('preview-text');
+        const photoInput = document.getElementById('photo');
+
+        photoInput.value = '';
+        previewImage.src = '#';
+        previewImage.classList.add('hidden');
+        previewText.classList.remove('hidden');
     });
 </script>
 

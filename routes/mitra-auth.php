@@ -10,6 +10,7 @@ use App\Http\Controllers\Mitra\Auth\RegisteredUserController;
 // use App\Http\Controllers\Mitra\Auth\VerifyEmailController;
 use App\Http\Controllers\Mitra\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FarmingNeedsController;
 
 Route::prefix('mitra')->middleware('guest:mitra')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
@@ -63,4 +64,11 @@ Route::prefix('mitra')->middleware('auth:mitra')->group(function () {
     Route::get('/product', function () {
         return view('mitra.add_product');
     })->name('mitra.add_product');
+
+    Route::post('/product', [FarmingNeedsController::class, 'store'])->name('produk.store');
+    Route::get('/toko', [FarmingNeedsController::class, 'index'])->name('mitra.check_store');
+    Route::get('/toko/{id}', [FarmingNeedsController::class, 'detail'])->name('farming_needs.detail');
+    Route::put('/toko/{id}', [FarmingNeedsController::class, 'update'])->name('mitra.update_product');
+    Route::delete('/toko/{id}', [FarmingNeedsController::class, 'destroy'])->name('mitra.delete_product');
+
 });
