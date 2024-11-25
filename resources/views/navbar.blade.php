@@ -1,31 +1,44 @@
-<nav class="sticky top-0 bg-gradient-to-r from-green-500 to-yellow-400 border-gray-200 dark:bg-gray-900">
-    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <a href="{{ route('dashboard') }}" class="flex items-center space-x-3 rtl:space-x-reverse">
-            <img src="/assets/logo.png" class="h-12" alt="Logo" />
-        </a>
-        <div class="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-            <button type="button" class="flex text-sm bg-gray-800 rounded-full md:me-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                <span class="sr-only">Open user menu</span>
-                <img class="w-10 h-10 rounded-full" src="/assets/user.png" alt="user photo">
+<nav class="bg-white py-4 shadow-md fixed w-full z-50">
+    <div class="container mx-auto px-6 md:px-12 flex justify-between items-center space-x-4">
+        <!-- Left: Account Icon -->
+        <div class="relative flex items-center space-x-6">
+            <button
+                type="button"
+                class="flex items-center text-gray-800 font-semibold focus:outline-none"
+                id="user-menu-button"
+                aria-expanded="false"
+                data-dropdown-toggle="user-dropdown"
+            >
+                <img src="/assets/user.png" alt="Account Icon" class="h-6 w-6 rounded-full">
             </button>
+
             <!-- Dropdown menu -->
-            <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow dark:bg-gray-700 dark:divide-gray-600" id="user-dropdown">
+            <div
+                id="user-dropdown"
+                class="hidden absolute top-full mt-2 right-0 z-50 w-90 bg-white rounded-lg shadow divide-y divide-gray-100 dark:bg-gray-700 dark:divide-gray-600"
+            >
                 <div class="px-4 py-3">
-                    <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+                    <span class="block text-sm font-semibold text-gray-900 dark:text-white">Bonnie Green</span>
                     <span class="block text-sm text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
                 </div>
-                <ul class="py-2" aria-labelledby="user-menu-button">
+                <ul class="py-2">
                     <li>
-                        <a href="{{ route('belanja') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Belanja</a>
+                        <a href="{{ route('belanja') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Belanja</a>
                     </li>
                     <li>
-                        <a href="{{ route('panen') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Prediksi Panen</a>
+                        <a href="{{ route('panen') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Prediksi Panen</a>
                     </li>
                     <li>
-                        <a href="{{ route('cek_tanaman') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Cek Tanaman</a>
+                        <a href="{{ route('cek_tanaman') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Cek Tanaman</a>
                     </li>
                     <li>
-                        <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                        <a
+                            href="#"
+                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                            class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-red-400 dark:hover:bg-gray-600"
+                        >
+                            Sign out
+                        </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
@@ -33,21 +46,89 @@
                 </ul>
             </div>
         </div>
-        <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
-            <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border-4 border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent dark:bg-gray-800 md:dark:bg-transparent dark:border-gray-700">
-                <li>
-                    <a href="{{ route('dashboard') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Beranda</a>
-                </li>
-                <li>
-                    <a href="{{ route('belanja') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Belanja</a>
-                </li>
-                <li>
-                    <a href="{{ route('panen') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Prediksi Panen</a>
-                </li>
-                <li>
-                    <a href="{{ route('cek_tanaman') }}" class="block py-2 px-3 text-black rounded hover:text-white hover:underline md:bg-transparent md:text-black md:p-0">Cek Tanaman</a>
-                </li>
-            </ul>
+
+        <!-- Center: Logo -->
+        <div class="flex-1 flex justify-center items-center">
+            <a href="{{ route('dashboard') }}">
+                <img src="/assets/logo.png" alt="Logo" class="h-10 w-auto">
+            </a>
+        </div>
+
+        <!-- Right: Cart Icons -->
+        <div class="flex items-center space-x-6">
+            <button
+                id="navbarCartButton"
+                class="flex items-center focus:outline-none"
+                onclick="toggleCartSection()"
+            >
+                <img src="/assets/shopping-cart.png" alt="Cart Icon" class="h-6 w-6">
+            </button>
         </div>
     </div>
+
+    <!-- Cart Section -->
+    <div
+        id="cartSection"
+        class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
+    >
+        <div class="bg-gradient-to-r from-green-300 to-yellow-200 border border-gray-300 shadow-2xl rounded-xl p-6 w-full max-w-md dark:bg-gray-800 dark:border-gray-600">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-6 dark:text-white">
+                Keranjang Belanja
+            </h2>
+            <ul class="divide-y divide-gray-200 mb-6 dark:divide-gray-600">
+                <li class="flex justify-between items-center py-3 text-gray-700 dark:text-gray-300">
+                    <span>Produk 1</span>
+                    <span class="font-medium">Rp2.000.000</span>
+                </li>
+                <li class="flex justify-between items-center py-3 text-gray-700 dark:text-gray-300">
+                    <span>Produk 2</span>
+                    <span class="font-medium">Rp1.500.000</span>
+                </li>
+            </ul>
+            <div class="flex justify-between items-center text-lg font-semibold text-gray-800 mb-6 dark:text-gray-200">
+                <span>Total:</span>
+                <span>Rp3.500.000</span>
+            </div>
+            <div class="space-y-4">
+                <button
+                    class="w-full px-6 py-3 bg-green-500 text-white font-semibold text-base rounded-lg shadow-md hover:bg-green-600 focus:outline-none focus:ring-4 focus:ring-green-300 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-500"
+                >
+                    Lanjut ke Pembayaran
+                </button>
+                <button
+                    class="w-full px-6 py-3 bg-gray-500 text-white font-semibold text-base rounded-lg shadow-md hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-500"
+                    onclick="toggleCartSection()"
+                >
+                    Kembali
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Section: Navigation Links -->
+    <div>
+        <nav class="container mx-auto px-6 md:px-12 flex justify-center space-x-6 py-2">
+            <a href="{{ route('dashboard') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">
+                Beranda
+            </a>
+            <a href="{{ route('belanja') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">
+                Belanja
+            </a>
+            <a href="{{ route('panen') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">
+                Prediksi Panen
+            </a>
+            <a href="{{ route('cek_tanaman') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">
+                Cek Tanaman
+            </a>
+        </nav>
+    </div>
 </nav>
+
+<script>
+    function toggleCartSection() {
+        const cartSection = document.getElementById('cartSection');
+        if (cartSection) {
+            cartSection.classList.toggle('hidden');
+        }
+    }
+</script>
