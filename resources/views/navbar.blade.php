@@ -9,7 +9,7 @@
                 aria-expanded="false"
                 data-dropdown-toggle="user-dropdown"
             >
-                <img src="/assets/user.png" alt="Account Icon" class="h-6 w-6 rounded-full">
+                <img src="/assets/user.png" alt="Account Icon" class="h-10 w-10 rounded-full">
             </button>
 
             <!-- Dropdown menu -->
