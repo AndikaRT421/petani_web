@@ -37,7 +37,7 @@
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                             class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-red-400 dark:hover:bg-gray-600"
                         >
-                            Sign out
+                            Keluar
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
@@ -71,7 +71,7 @@
         id="cartSection"
         class="hidden fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
     >
-        <div class="bg-gradient-to-r from-green-300 to-yellow-200 border border-gray-300 shadow-2xl rounded-xl p-6 w-full max-w-md dark:bg-gray-800 dark:border-gray-600">
+        <div class="bg-gradient-to-r from-green-200 to-yellow-100 border border-gray-300 shadow-2xl rounded-xl p-6 w-full max-w-md dark:bg-gray-800 dark:border-gray-600">
             <h2 class="text-2xl font-bold text-center text-gray-800 mb-6 dark:text-white">
                 Keranjang Belanja
             </h2>

@@ -14,39 +14,41 @@
 
         <style>
             body {
-                background-image: url('/assets/background.jpg');
+                background-image: url('/assets/background_login.jpg');
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-attachment: fixed;
-                background-color: rgba(255, 255, 255, 0.3);
-                background-blend-mode: overlay;
+                background-color: rgba(0, 0, 0, 0.6);
+                background-blend-mode: darken;
             }
         </style>
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans text-gray-900 antialiased">
+    <body class="font-sans text-gray-100 antialiased">
         <div class="min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0">
-
-            <!-- Card Container -->
-            <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-gray-100 dark:bg-gray-800 shadow-md overflow-hidden sm:rounded-lg" style="background: linear-gradient(45deg, #62f67d, #fffb7d);">
-                
-                <!-- USER and MITRA Buttons -->
-                <div class="flex justify-around mb-6">
-                    <a href="/" class="w-1/2 px-6 py-3 text-xl text-center font-bold bg-white shadow-lg text-gray-800 rounded-lg hover:bg-indigo-500 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105">
+            <!-- Header Section -->
+            <div class="w-full flex justify-center mb-6">
+                <div class="flex space-x-4 bg-gray-900 bg-opacity-70 rounded-full p-3 shadow-lg">
+                    <a href="/" 
+                        class="px-8 py-2 text-lg font-bold text-gray-100 bg-indigo-600 rounded-full shadow-lg hover:bg-indigo-500 hover:shadow-indigo-600/50 transition-transform duration-300 transform hover:scale-105">
                         USER
                     </a>
-                    <a href="{{ route('mitra.login') }}" class="w-1/2 px-6 py-3 text-xl text-center font-bold bg-white shadow-lg text-gray-800 rounded-lg ml-4 hover:bg-red-500 hover:text-white transition-all duration-300 ease-in-out transform hover:scale-105">
+                    <a href="{{ route('mitra.login') }}" 
+                        class="px-8 py-2 text-lg font-bold text-gray-100 bg-red-600 rounded-full shadow-lg hover:bg-red-500 hover:shadow-red-600/50 transition-transform duration-300 transform hover:scale-105">
                         MITRA
                     </a>
                 </div>
-                
+            </div>
+
+            <!-- Card Container -->
+            <div class="w-full sm:max-w-md px-8 py-10 bg-white bg-opacity-90 backdrop-blur-lg shadow-2xl rounded-xl border border-gray-200">
                 <!-- Logo -->
-                <div class="text-center mb-6">
+                <div class="text-center mb-8">
                     <a href="/">
-                        <img src="/assets/logo.png" class="w-64 mx-auto" alt="Logo">
+                        <img src="/assets/logo.png" class="w-36 mx-auto" alt="Logo">
                     </a>
                 </div>
 
