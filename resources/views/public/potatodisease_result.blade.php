@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="min-h-screen flex items-center justify-center py-10 bg-gray-50 dark:bg-gray-900">
-    <div class="w-full max-w-3xl bg-gradient-to-r from-green-300 to-yellow-200 border border-gray-300 shadow-xl rounded-xl p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="w-full max-w-3xl bg-gradient-to-r from-green-200 to-yellow-100 border border-gray-300 shadow-xl rounded-xl p-8 dark:bg-gray-800 dark:border-gray-700">
         <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
             Hasil Deteksi Penyakit Kentang
         </h2>

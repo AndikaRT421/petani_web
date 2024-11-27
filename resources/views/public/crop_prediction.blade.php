@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="min-h-screen bg-gray-100 flex items-center justify-center" style="padding-top: 9rem; padding-bottom: 5rem;">
-    <div class="w-full max-w-3xl bg-gradient-to-r from-green-300 to-yellow-200 border border-gray-300 shadow-xl rounded-xl p-8 dark:bg-gray-800 dark:border-gray-700">
+    <div class="w-full max-w-3xl bg-gradient-to-r from-green-200 to-yellow-100 border border-gray-300 shadow-xl rounded-xl p-8 dark:bg-gray-800 dark:border-gray-700">
         <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Prediksi Harga Panen</h2>
         
         <form action="/predict-harvest" method="POST" class="space-y-6">

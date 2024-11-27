@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container mx-auto p-4">
+<div class="container mx-auto p-4" style="padding-bottom: 5rem;">
     <div class="flex justify-between items-center mb-4">
         <!-- Search Bar -->
         <div class="w-full md:w-1/2">
@@ -36,7 +36,7 @@
             <p class="text-gray-600 mb-2">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
             <a 
                 href="{{ route('farming_needs.detail', ['id' => $product->id]) }}" 
-                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg text-center block mt-2"
+                class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg text-center block mt-2"
             >
                 Detail
             </a>
@@ -71,8 +71,8 @@
                     text: "Anda tidak akan dapat mengembalikan ini!",
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
+                    confirmButtonColor: 'green',
+                    cancelButtonColor: 'red',
                     confirmButtonText: 'Ya, hapus!',
                     cancelButtonText: 'Batal'
                 }).then((result) => {

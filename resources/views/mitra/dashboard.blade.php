@@ -2,17 +2,19 @@
 <!-- Hero Section -->
 @section('content')
 
-<section class="bg-gray-100 py-12">
-    <div class="container mx-auto text-center">
-        <h1 class="text-3xl font-bold mb-4">Mitra Dashboard</h1>
-        <p class="text-lg mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet nulla auctor, vestibulum magna sed, convallis ex.</p>
-        <!-- <button class="bg-orange-500 hover:bg-orange-700 text-white font-bold py-2 px-4 rounded">Shop Now</button> -->
+<section class="bg-gray-100 py-12 relative" 
+         style="background: url('{{ asset('assets/background_user_dashboard.jpg') }}') no-repeat center center; background-size: cover; height: 300px;">
+    <!-- Optional overlay for better text visibility -->
+    <div class="absolute inset-0 bg-black opacity-40 pointer-events-none"></div> 
+    <!-- Text container -->
+    <div class="container mx-auto flex items-center justify-center h-full relative z-10">
+        <h1 class="text-4xl md:text-5xl font-bold text-white">Selamat Datang</h1>
     </div>
 </section>
 
 <!-- Product Grid -->
-<section class="py-12 bg-gray-50">
-    <div class="container mx-auto px-4">
+<section class="py-12 bg-gray-50 mb-12">
+    <div class="container mx-auto px-6">
         <!-- Header -->
         <h2 class="text-3xl font-bold text-gray-800 mb-8">Laporan Penjualan Bulanan</h2>
 
@@ -114,41 +116,41 @@
                 </table>
             </div>
         </div>
+    </div>
+
+    <!-- Sales Chart -->
+    <div class="container mx-auto px-6">
+        <!-- Header -->
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 hidden md:block">Laporan Pendapatan Tahunan</h2>
+
+        <!-- Filter Section for Sales Chart -->
+        <div class="bg-white p-6 rounded-lg shadow-lg mb-8 hidden md:block">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Filter Grafik Penjualan</h3>
+            <form id="chartFilterForm" class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
+                <!-- Year Filter -->
+                <div class="w-full md:w-1/3">
+                    <label for="chartYear" class="block text-sm font-medium text-gray-700">Tahun</label>
+                    <select id="chartYear" name="year" class="mt-1 block w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                        <option value="2021">2021</option>
+                    </select>
+                </div>
+                <!-- Filter Button -->
+                <div class="w-full md:w-auto">
+                    <button type="button" id="applyFilter" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Terapkan Filter</button>
+                </div>
+            </form>
+        </div>
 
         <!-- Sales Chart -->
-        <div class="container mx-auto px-4">
-            <!-- Header -->
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 hidden md:block">Laporan Pendapatan Tahunan</h2>
-
-            <!-- Filter Section for Sales Chart -->
-            <div class="bg-white p-6 rounded-lg shadow-lg mb-8 hidden md:block">
-                <h3 class="text-xl font-semibold text-gray-700 mb-4">Filter Grafik Penjualan</h3>
-                <form id="chartFilterForm" class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4">
-                    <!-- Year Filter -->
-                    <div class="w-full md:w-1/3">
-                        <label for="chartYear" class="block text-sm font-medium text-gray-700">Tahun</label>
-                        <select id="chartYear" name="year" class="mt-1 block w-full bg-gray-100 border border-gray-300 rounded-md py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                        </select>
-                    </div>
-                    <!-- Filter Button -->
-                    <div class="w-full md:w-auto">
-                        <button type="button" id="applyFilter" class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md">Terapkan Filter</button>
-                    </div>
-                </form>
-            </div>
-
-            <!-- Sales Chart -->
-            <div class="bg-white p-6 rounded-lg shadow-lg hidden md:block">
-                <h3 class="text-xl font-semibold text-gray-700 mb-4">Grafik Penjualan</h3>
-                <canvas id="salesChart" class="w-full h-64"></canvas> <!-- Canvas for Chart -->
-            </div>
+        <div class="bg-white p-6 rounded-lg shadow-lg hidden md:block">
+            <h3 class="text-xl font-semibold text-gray-700 mb-4">Grafik Penjualan</h3>
+            <canvas id="salesChart" class="w-full h-64"></canvas> <!-- Canvas for Chart -->
         </div>
     </div>
-    </section>
+</section>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
