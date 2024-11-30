@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PotatoDiseaseController;
+use App\Http\Controllers\UserProfileController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -18,9 +19,12 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get(('/belanja'), function () {
-    return view('public.shopping');
-})->name('belanja');
+// Route::get(('/belanja'), function () {
+//     return view('public.shopping');
+// })->name('belanja');
+Route::get(('/belanja'), [UserProfileController::class, 'index'])->name('belanja');
+Route::get('/cart', [UserProfileController::class, 'viewCart'])->name('cart');
+Route::post('/cart/add/{id}', [UserProfileController::class, 'addToCart'])->name('cart.add');
 
 Route::get(('/panen'), function () {
     return view('public.crop_prediction');

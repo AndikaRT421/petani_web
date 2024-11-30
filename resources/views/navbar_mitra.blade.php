@@ -36,8 +36,9 @@
                 id="mitra-dropdown"
             >
                 <div class="px-4 py-3">
-                    <span class="block text-sm font-semibold text-gray-800 dark:text-white">Bonnie Green</span>
-                    <span class="block text-sm text-gray-500 dark:text-gray-400 truncate">name@flowbite.com</span>
+                    <span class="block text-sm font-semibold text-gray-800 dark:text-white">{{ Auth::user()->name }}</span>
+                    <span class="block text-sm text-gray-500 dark:text-gray-400 truncate">{{ Auth::user()->email }}</span>
+                    <span class="block text-sm text-gray-500 dark:text-gray-400 truncate">{{ Auth::user()->profit }}</span>
                 </div>
                 <ul class="py-2">
                     <li>

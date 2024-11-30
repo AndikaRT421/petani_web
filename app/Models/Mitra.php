@@ -24,6 +24,7 @@ class Mitra extends Authenticatable
         'password',
         'phone',
         'picture',
+        'profit',
     ];
 
     /**

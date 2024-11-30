@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('username')->unique()->after('id');
             $table->string('phone')->unique()->after('password');
             $table->string('picture')->nullable()->after('phone');
+            $table->decimal('balance', 15, 2)->default(100000000.00);
         });
     }
 
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->dropColumn('username');
             $table->dropColumn('phone');
             $table->dropColumn('picture');
+            $table->dropColumn('balance');
         });
     }
 };

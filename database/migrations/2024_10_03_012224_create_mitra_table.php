@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->string('picture')->nullable();
+            $table->decimal('profit', 15, 2)->default(0.00);
             $table->rememberToken();
             $table->timestamps();
         });

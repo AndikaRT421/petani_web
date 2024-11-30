@@ -11,6 +11,17 @@
 </head>
 <body>
     @include('navbar_mitra') <!-- Include navbar -->
+    @if (session('error'))
+    <div class="bg-red-500 text-white p-4 rounded">
+        {{ session('error') }}
+    </div>
+@endif
+
+@if (session('success'))
+    <div class="bg-green-500 text-white p-4 rounded">
+        {{ session('success') }}
+    </div>
+@endif
     @yield('content')
     @include('footer') <!-- Include footer -->
 

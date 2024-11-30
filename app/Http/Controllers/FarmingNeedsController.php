@@ -41,7 +41,7 @@ class FarmingNeedsController extends Controller
         }
         $farmingNeed->save();
 
-        return redirect()->route('mitra.dashboard')->with('success', 'Product added successfully');
+        return redirect()->route('mitra.check_store')->with('success', 'Product added successfully');
     }
 
     public function detail($id)
