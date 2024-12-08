@@ -25,6 +25,7 @@ Route::middleware('auth')->group(function () {
 Route::get(('/belanja'), [UserProfileController::class, 'index'])->name('belanja');
 Route::get('/cart', [UserProfileController::class, 'viewCart'])->name('cart');
 Route::post('/cart/add/{id}', [UserProfileController::class, 'addToCart'])->name('cart.add');
+Route::post('/cart/checkout', [UserProfileController::class, 'checkout'])->name('cart.checkout');
 
 Route::get(('/panen'), function () {
     return view('public.crop_prediction');

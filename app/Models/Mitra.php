@@ -27,6 +27,12 @@ class Mitra extends Authenticatable
         'profit',
     ];
 
+    public function farmingNeeds()
+    {
+        return $this->hasMany(FarmingNeed::class);
+    }
+
+
     /**
      * The attributes that should be hidden for serialization.
      *

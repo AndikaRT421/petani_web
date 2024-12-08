@@ -64,7 +64,7 @@
             <!-- Total Sales -->
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-xl font-semibold text-gray-700">Total Penjualan</h3>
-                <p class="text-3xl font-bold text-green-500 mt-2">Rp 12.000.000</p>
+                <p class="text-3xl font-bold text-green-500 mt-2">{{ Auth::user()->profit }}</p>
                 <span class="text-sm text-gray-500">+10% dari bulan lalu</span>
             </div>
             <!-- Total Orders -->

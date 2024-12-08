@@ -19,4 +19,9 @@ class FarmingNeed extends Model
         'price',
         'photo',
     ];
+    public function mitra()
+    {
+        return $this->belongsTo(Mitra::class);
+    }
+
 }

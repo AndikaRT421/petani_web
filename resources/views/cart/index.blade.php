@@ -44,6 +44,17 @@
         @else
             <p class="text-center text-gray-600">Keranjang kosong!</p>
         @endif
+
+        <form action="{{ route('cart.checkout') }}" method="POST" class="mt-5">
+            @csrf
+            <button
+                type="submit"
+                class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"
+            >
+                Checkout
+            </button>
+        </form>
+        
     </div>
 </body>
 </html>
