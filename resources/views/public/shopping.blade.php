@@ -35,11 +35,15 @@
                 >
                 <h2 class="text-lg font-semibold mb-2">{{ $file->item_name ?? 'Nama Produk' }}</h2>
                 <p class="text-gray-600 mb-2">Rp{{ number_format($file->price ?? 0, 0, ',', '.') }}</p>
-            <button
-                class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg"
-            >
-                Tambahkan ke Keranjang
-            </button>
+                <form action="{{ route('cart.add', $file->id) }}" method="POST">
+                    @csrf
+                    <button
+                        type="submit"
+                        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg"
+                    >
+                        Tambahkan ke Keranjang
+                    </button>
+                </form>
         </div>
         @endforeach
     </div>

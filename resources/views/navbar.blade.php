@@ -60,7 +60,7 @@
             <button
                 id="navbarCartButton"
                 class="flex items-center focus:outline-none"
-                onclick="toggleCartSection()"
+                onclick="location.href='{{ route('cart') }}'"
             >
                 <img src="/assets/shopping-cart.png" alt="Cart Icon" class="h-6 w-6">
             </button>

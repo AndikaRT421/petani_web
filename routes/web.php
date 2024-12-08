@@ -35,6 +35,6 @@ Route::get(('/cek_tanaman'), function () {
 })->name('cek_tanaman');
 
 Route::post('/cek_tanaman/hasil', [PotatoDiseaseController::class, 'detect']);
-
+ 
 require __DIR__.'/auth.php';
 require __DIR__.'/mitra-auth.php';
