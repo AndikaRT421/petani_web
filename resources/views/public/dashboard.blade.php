@@ -24,7 +24,7 @@
         <div class="flex justify-center space-x-4">
             <a 
                 href="{{ route('belanja') }}" 
-                class="bg-white text-black font-semibold py-3 px-8 rounded-lg hover:bg-gray-200 transition"
+                class="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-black transition"
                 style="min-width: 150px;"
             >
                 Belanja Sekarang
@@ -35,6 +35,13 @@
                 style="min-width: 150px;"
             >
                 Cek Tanaman
+            </a>
+            <a 
+                href="{{ route('chatbot') }}" 
+                class="bg-transparent border-2 border-white text-white font-semibold py-3 px-8 rounded-lg hover:bg-white hover:text-black transition"
+                style="min-width: 150px;"
+            >
+                Tanya Emilia
             </a>
         </div>
     </div>

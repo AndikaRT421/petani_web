@@ -27,10 +27,10 @@
                         <a href="{{ route('belanja') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Belanja</a>
                     </li>
                     <li>
-                        <a href="{{ route('panen') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Prediksi Panen</a>
+                        <a href="{{ route('cek_tanaman') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Cek Tanaman</a>
                     </li>
                     <li>
-                        <a href="{{ route('cek_tanaman') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Cek Tanaman</a>
+                        <a href="{{ route('chatbot') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Tanya Emilia</a>
                     </li>
                     <li>
                         <a
@@ -115,11 +115,11 @@
             <a href="{{ route('belanja') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">
                 Belanja
             </a>
-            <a href="{{ route('panen') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">
-                Prediksi Panen
-            </a>
             <a href="{{ route('cek_tanaman') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">
                 Cek Tanaman
+            </a>
+            <a href="{{ route('chatbot') }}"" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">
+                Tanya Emilia
             </a>
         </nav>
     </div>

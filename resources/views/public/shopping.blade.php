@@ -1,11 +1,6 @@
 @extends('layouts.master')
 
 @section('content')
-<a href="{{ route('chatbot') }}" class="fixed bottom-16 right-16 bg-blue-500 text-white p-4 rounded-full shadow-lg hover:bg-blue-600 transition">
-    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16h6M9 21v-6a2 2 0 012-2h2a2 2 0 012 2v6m-6-7.028a8.028 8.028 0 01-6.134 2.5 8 8 0 1116 0A8.028 8.028 0 0112 13.972z" />
-    </svg>
-</a>
 <div class="container mx-auto p-4" style="padding-top: 9rem; padding-bottom: 5rem;">
     <div class="flex justify-between items-center mb-4">
         <!-- Search Bar -->
