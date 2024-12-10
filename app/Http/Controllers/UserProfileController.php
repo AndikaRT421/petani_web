@@ -17,6 +17,24 @@ class UserProfileController extends Controller
         return view('public.shopping', compact('files'));
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('search'); 
+        $sortPrice = $request->input('sort_price', 'terendah'); 
+
+        $products = FarmingNeed::query()
+            ->where('item_name', 'LIKE', "%{$query}%");
+        if ($sortPrice === 'terendah') {
+            $products = $products->orderBy('price', 'asc');
+        } else {
+            $products = $products->orderBy('price', 'desc');
+        }
+
+        $products = $products->get();
+
+        return view('public.shopping', ['files' => $products]);
+    }
+
     public function addToCart(Request $request, $id)
     {
         $item = FarmingNeed::find($id); 

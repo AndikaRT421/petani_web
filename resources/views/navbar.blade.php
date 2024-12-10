@@ -11,7 +11,7 @@
             >
                 <img src="/assets/user.png" alt="Account Icon" class="h-10 w-10 rounded-full">
             </button>
-
+            
             <!-- Dropdown menu -->
             <div
                 id="user-dropdown"
