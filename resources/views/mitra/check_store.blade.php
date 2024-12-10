@@ -26,21 +26,27 @@
 
     <!-- Product Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        @forelse ($farmingNeeds as $product)
+        @forelse ($farmingNeeds as $file)
         <div class="border rounded-lg shadow-lg p-4">
-            <img 
-                src="{{ $product->photo ? asset('images/' . $product->photo) : asset('images/default.jpg') }}" 
-                alt="{{ $product->item_name }}" 
-                class="w-full h-48 object-contain rounded-md mb-4">
-            <h2 class="text-lg font-semibold mb-2">{{ $product->item_name }}</h2>
-            <p class="text-gray-600 mb-2">Rp{{ number_format($product->price, 0, ',', '.') }}</p>
+            <img src="{{ asset('images/' . $file->photo) }}" alt="{{ $file->item_name }}" class="w-full h-48 object-cover rounded-md mb-4">
+            <h2 class="mt-4 text-lg font-semibold text-gray-800">{{ $file->item_name ?? 'Nama Produk' }}</h2>
+            @php
+                $discountedPrice = $file->price - ($file->price * ($file->discount / 100));
+            @endphp
+            <div class="text-xl font-bold text-gray-800 mt-2">
+                Rp{{ number_format($discountedPrice ?? 0, 0, ',', '.') }}
+                <span class="text-sm text-gray-500 line-through">Rp{{ number_format($file->price ?? 0, 0, ',', '.') }}</span>
+                <span class="text-red-600 font-semibold">{{ $file->discount ?? '0' }}%</span>
+                <div class="text-yellow-500 mb-0.5">★ {{ $file->rating ?? '0' }} ({{ $file->sold ?? 'no' }} terjual)</div>
+            <div class="text-sm text-green-600 mb-2">Toko {{ $file->mitra->name ?? 'Nama Toko' }}</div>
+            </div>
             <a 
-                href="{{ route('farming_needs.detail', ['id' => $product->id]) }}" 
+                href="{{ route('farming_needs.detail', ['id' => $file->id]) }}" 
                 class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-lg text-center block mt-2"
             >
                 Detail
             </a>
-            <form action="{{ route('mitra.delete_product', ['id' => $product->id]) }}" method="POST" class="delete-form w-full mt-2">
+            <form action="{{ route('mitra.delete_product', ['id' => $file->id]) }}" method="POST" class="delete-form w-full mt-2">
                 @csrf
                 @method('DELETE')
                 <button 

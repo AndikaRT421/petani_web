@@ -16,13 +16,15 @@ class FarmingNeedsController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'item_type' => 'required|string|max:255',
             'item_name' => 'required|string|max:255',
             'description' => 'required|string|max:1000', 
             'stock' => 'required|integer|min:0', 
             'price' => 'required|numeric|min:0', 
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', 
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg', 
+            'discount' => 'required|integer|min:0|max:100',
         ]);
 
         $farmingNeed = new FarmingNeed();
@@ -32,6 +34,9 @@ class FarmingNeedsController extends Controller
         $farmingNeed->description = $request->description;
         $farmingNeed->stock = $request->stock;
         $farmingNeed->price = $request->price;
+        $farmingNeed->discount = $request->discount;
+        $farmingNeed->rating = rand(35, 46) / 10;
+
 
         if ($request->hasFile('photo')) {
             $photo = $request->file('photo');
@@ -39,9 +44,13 @@ class FarmingNeedsController extends Controller
             $photo->move(public_path('images'), $filename);
             $farmingNeed->photo = $filename;
         }
-        $farmingNeed->save();
 
-        return redirect()->route('mitra.check_store')->with('success', 'Product added successfully');
+        try {
+            $farmingNeed->save();
+            return redirect()->route('mitra.check_store')->with('success', 'Product added successfully');
+        } catch (\Exception $e) {
+            return redirect()->route('mitra.check_store')->with('error', 'Error adding product: ' . $e->getMessage());
+        }
     }
 
     public function detail($id)

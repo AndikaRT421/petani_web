@@ -7,6 +7,16 @@
         <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center dark:text-gray-200">
             Tambah Produk
         </h2>
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
         <form id="product-form" action="{{ route('produk.store') }}" method="POST" enctype="multipart/form-data" class="space-y-8">
             @csrf
             <!-- Bagian Detail Produk -->
@@ -73,6 +83,21 @@
                             required
                         >
                     </div>
+
+                    <div class="mb-5">
+                        <label for="discount" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">
+                            Diskon
+                        </label>
+                        <input 
+                            type="number" 
+                            id="discount" 
+                            name="discount" 
+                            class="block w-full text-sm text-gray-700 bg-gray-50 border border-gray-300 rounded-lg shadow-md p-2 focus:outline-none focus:ring-2 focus:ring-green-400 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600" 
+                            placeholder="0" 
+                            required
+                        >
+                    </div>
+
                     <!-- Deskripsi -->
                     <div class="mb-5">
                         <label for="description" class="block text-sm font-medium text-gray-700 dark:text-gray-200 mb-2">

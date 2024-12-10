@@ -78,10 +78,15 @@
                 <label for="stock" class="block text-sm font-medium text-gray-700">Stok</label>
                 <input type="number" name="stock" id="stock" class="w-full border rounded-lg p-2 mt-1" value="{{ $product->stock }}" required>
             </div>
+            <div class="mb-4">
+                <label for="stock" class="block text-sm font-medium text-gray-700">Diskon</label>
+                <input type="number" name="discount" id="discount" class="w-full border rounded-lg p-2 mt-1" value="{{ $product->discount }}" required>
+            </div>
             <div class="mb-6">
                 <label for="photo" class="block text-sm font-medium text-gray-700">Foto Produk</label>
                 <input type="file" name="photo" id="photo" class="w-full border rounded-lg p-2 mt-1">
             </div>
+            
             <div class="flex justify-end space-x-4">
                 <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-700 font-bold py-2 px-4 rounded-lg" onclick="closeEditModal()">Batal</button>
                 <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">Simpan</button>

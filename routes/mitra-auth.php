@@ -11,7 +11,7 @@ use App\Http\Controllers\Mitra\Auth\RegisteredUserController;
 use App\Http\Controllers\Mitra\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FarmingNeedsController;
-
+use App\Models\FarmingNeed;
 Route::prefix('mitra')->middleware('guest:mitra')->group(function () {
     Route::get('register', [RegisteredUserController::class, 'create'])
         ->name('mitra.register');
@@ -55,7 +55,8 @@ Route::prefix('mitra')->middleware('auth:mitra')->group(function () {
 
     // Route::put('password', [PasswordController::class, 'update'])->name('password.update');
     Route::get('/dashboard', function () {
-        return view('mitra.dashboard');
+        $data = FarmingNeed::all();
+        return view('mitra.dashboard', compact('data'));
     })->name('mitra.dashboard');
 
     Route::post('logout', [LoginController::class, 'destroy'])

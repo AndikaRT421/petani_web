@@ -29,6 +29,9 @@ Route::get('/belanja/search', [UserProfileController::class, 'search'])->name('b
 Route::get('/cart', [UserProfileController::class, 'viewCart'])->name('cart');
 Route::post('/cart/add/{id}', [UserProfileController::class, 'addToCart'])->name('cart.add');
 Route::post('/cart/checkout', [UserProfileController::class, 'checkout'])->name('cart.checkout');
+Route::patch('/cart/update/{id}', [UserProfileController::class, 'updateCart'])->name('cart.update');
+Route::delete('/cart/remove/{id}', [UserProfileController::class, 'removeFromCart'])->name('cart.remove');
+
 
 
 Route::get(('/panen'), function () {

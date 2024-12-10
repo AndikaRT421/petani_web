@@ -17,6 +17,9 @@ return new class extends Migration
             $table->integer('stock')->default(0);
             $table->decimal('price', 10, 2)->default(0.00);
             $table->string('photo', 300)->nullable();
+            $table->integer('sold')->default(0);
+            $table->integer('discount');
+            $table->decimal('rating', 2, 1)->default(rand(35, 46) / 10);
             $table->timestamps();
         });
     }

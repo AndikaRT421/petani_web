@@ -19,6 +19,8 @@ class FarmingNeed extends Model
         'price',
         'photo',
         'sold',
+        'discount',
+        'rating',
         
     ];
     public function mitra()
