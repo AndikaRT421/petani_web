@@ -20,6 +20,13 @@
                 <a href="{{ route('mitra.dashboard') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">Beranda</a>
                 <a href="{{ route('mitra.add_product') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">Tambah Produk</a>
                 <a href="{{ route('mitra.check_store') }}" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">Cek Toko</a>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                {{-- <a href="#" class="nav-link text-gray-800 font-semibold hover:text-black transition hover:underline">Chat Pembeli</a> --}}
+>>>>>>> fe7cfbbab48840a308c6792753ea7492c41b76f3
+>>>>>>> e4615248ea1ec0b866f951ceaff55eaed19dfdb6
             </div>
         </div>
 
