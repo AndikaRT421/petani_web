@@ -205,11 +205,11 @@
         }
     });
 
-    // Filter Logic
+
     document.getElementById('applyFilter').addEventListener('click', function() {
         const selectedYear = document.getElementById('chartYear').value;
-        salesChart.data.datasets[0].data = salesData[selectedYear]; // Update chart data
-        salesChart.update(); // Redraw chart
+        salesChart.data.datasets[0].data = salesData[selectedYear];
+        salesChart.update(); 
     });
     </script>
 
