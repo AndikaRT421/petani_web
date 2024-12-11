@@ -9,7 +9,7 @@ class chatbotController extends Controller
 {
     public function uploads(Request $request)
     {
-        // Validasi input
+        
         $request->validate([
             'file' => 'required|mimes:pdf|max:2048',
             'confirmation' => 'required|in:Saya mengerti akan risiko tersebut',

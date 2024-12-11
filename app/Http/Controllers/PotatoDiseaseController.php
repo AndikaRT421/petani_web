@@ -10,7 +10,7 @@ class PotatoDiseaseController extends Controller
 {
     public function detect(Request $request)
     {
-        // Validasi file gambar
+        
         $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048',
         ]);
@@ -28,7 +28,7 @@ class PotatoDiseaseController extends Controller
     
         $result = json_decode($response->getBody()->getContents(), true);
 
-        // Ambil URL gambar hasil deteksi dari JSON
+        
         $imageUrl = $result['image_url'];
         $detections = $result['detections'];
     

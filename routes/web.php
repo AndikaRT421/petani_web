@@ -29,6 +29,10 @@ Route::post('/cart/add/{id}', [UserProfileController::class, 'addToCart'])->name
 Route::post('/cart/checkout', [UserProfileController::class, 'checkout'])->name('cart.checkout');
 Route::patch('/cart/update/{id}', [UserProfileController::class, 'updateCart'])->name('cart.update');
 Route::delete('/cart/remove/{id}', [UserProfileController::class, 'removeFromCart'])->name('cart.remove');
+// Route::get('/add-balance', [UserProfileController::class, 'showAddBalanceForm'])->name('add_balance');
+// Route::post('/add-balance', [UserProfileController::class, 'addBalance'])->name('add_balance.store');
+Route::post('/add_balance', [UserProfileController::class, 'addBalance'])->name('add_balance');
+
 
 
 
@@ -51,6 +55,7 @@ Route::get('/chatbot/upload', function () {
     return view('public.chatbot_upload');
 })->name('chatbot_upload');
 Route::post('/chatbot/upload', [ChatbotController::class, 'uploads']);
+
  
 require __DIR__.'/auth.php';
 require __DIR__.'/mitra-auth.php';
