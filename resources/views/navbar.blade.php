@@ -50,31 +50,8 @@
                     <span class="block text-sm text-gray-500 dark:text-gray-400 truncate">{{ Auth::user()->balance }}</span>
                 </div>
                 <ul class="py-2">
-<<<<<<< HEAD
                     <li class="border-t border-gray-200">
                         <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="block px-4 py-1 text-sm text-center text-red-600 hover:text-black transition">Keluar</a>
-=======
-                    <li>
-                        <a href="{{ route('belanja') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Belanja</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('cek_tanaman') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Cek Tanaman</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('chatbot') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Tanya Emilia</a>
-                    </li>
-                    <li>
-                        <a href="#" id="addBalanceLink" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Add Balance</a>
-                    </li>
-                    <li>
-                        <a
-                            href="#"
-                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                            class="block px-4 py-2 text-sm text-red-600 hover:bg-gray-100 dark:text-red-400 dark:hover:bg-gray-600"
-                        >
-                            Keluar
-                        </a>
->>>>>>> fe7cfbbab48840a308c6792753ea7492c41b76f3
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
