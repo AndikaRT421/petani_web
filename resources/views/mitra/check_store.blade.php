@@ -4,8 +4,8 @@
 
 <div class="container mx-auto p-4" style="padding-bottom: 5rem;">
     <div class="flex justify-between items-center mb-4">
-        <!-- Search Bar -->
-        <div class="w-full md:w-1/2">
+
+        <div class="w-full md:w-1/2 md:flex-1">
             <input
                 type="text"
                 placeholder="Cari barang..."
@@ -13,8 +13,7 @@
             />
         </div>
         
-        <!-- Sort By Price -->
-        <div class="ml-4">
+        <div class="ml-1">
             <select
                 class="p-2 border rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
             >

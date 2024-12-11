@@ -43,10 +43,8 @@ class UserProfileController extends Controller
         return redirect()->back()->with('error', 'Produk tidak ditemukan!');
     }
 
-    // Ambil kuantitas dari request, default ke 1 jika tidak ada
     $quantity = $request->input('quantity', 1);
 
-    // Validasi kuantitas
     if ($quantity < 1) {
         return redirect()->back()->with('error', 'Kuantitas tidak valid!');
     }
@@ -54,10 +52,9 @@ class UserProfileController extends Controller
     $cart = session()->get('cart', []);
 
     if (isset($cart[$id])) {
-        // Jika produk sudah ada di keranjang, tambahkan kuantitas
         $cart[$id]['quantity'] += $quantity;
     } else {
-        // Jika produk belum ada di keranjang, tambahkan produk baru
+        
         $cart[$id] = [
             "name" => $item->item_name,
             "photo" => $item->photo,
@@ -128,19 +125,18 @@ class UserProfileController extends Controller
 {
     $cart = session()->get('cart', []);
 
-    // Cek jika keranjang kosong
+    
     if (empty($cart)) {
         return redirect()->route('cart')->with('error', 'Keranjang kosong!');
     }
 
     DB::beginTransaction();
     try {
-        $user = auth()->user(); // Dapatkan user yang sedang login
-
+        $user = auth()->user(); 
         foreach ($cart as $id => $item) {
             $product = FarmingNeed::find($id);
 
-            // Validasi produk dan stok
+            
             if (!$product) {
                 throw new \Exception("Produk tidak ditemukan: {$item['name']}");
             }
@@ -148,37 +144,36 @@ class UserProfileController extends Controller
                 throw new \Exception("Stok tidak mencukupi untuk barang: {$item['name']}");
             }
 
-            // Hitung harga total dengan diskon
+            
             $total_price = ($item['price'] - ($item['price'] * $product->discount / 100)) * $item['quantity'];
 
-            // Validasi saldo pengguna
+            
             if ($user->balance < $total_price) {
                 throw new \Exception("Saldo tidak mencukupi untuk barang: {$item['name']}");
             }
 
-            // Kurangi stok barang dan tambahkan ke jumlah terjual
+            
             $product->stock -= $item['quantity'];
             $product->sold += $item['quantity'];
             $product->save();
 
-            // Kurangi saldo user
+            
             $user->balance -= $total_price;
             $user->save();
 
-            // Tambahkan profit ke mitra
+            
             $mitra = $product->mitra;
             $mitra->profit += $total_price;
             $mitra->save();
         }
 
-        // Hapus keranjang dari session
+        
         session()->forget('cart');
 
-        // Commit transaksi
+        
         DB::commit();
         return redirect()->route('cart')->with('success', 'Transaksi berhasil!');
     } catch (\Exception $e) {
-        // Rollback jika ada kesalahan
         DB::rollBack();
         return redirect()->route('cart')->with('error', $e->getMessage());
     }
