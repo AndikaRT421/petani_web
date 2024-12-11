@@ -7,8 +7,9 @@
     <!-- Optional overlay for better text visibility -->
     <div class="absolute inset-0 bg-black opacity-40 pointer-events-none"></div> 
     <!-- Text container -->
-    <div class="container mx-auto flex items-center justify-center h-full relative z-10">
+    <div class="container mx-auto flex flex-col items-center justify-center h-full relative z-10 text-center">
         <h1 class="text-4xl md:text-5xl font-bold text-white">Selamat Datang</h1>
+        <h2 class="text-2xl md:text-3xl font-semibold text-white mt-2">{{ Auth::user()->name }}</h2>
     </div>
 </section>
 
@@ -83,11 +84,15 @@
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h3 class="text-xl font-semibold text-gray-700">Rating Toko</h3>
                 @php
-                    $avgRating = 0;
+                    $avgRating = 1;
                     foreach ($data as $datas) {
                         $avgRating += $datas->rating;
                     }
-                    $avgRating = $avgRating / count($data);
+                    if (count($data) == 0) {
+                        $avgRating = 0;
+                    } else {
+                        $avgRating = $avgRating / count($data);
+                    }
                 @endphp
                 <p class="text-3xl font-bold text-yellow-500 mt-2">{{ $avgRating }}</p>
                 
