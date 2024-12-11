@@ -18,6 +18,7 @@
     @yield('content')
     @include('footer') <!-- Include footer -->
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
     <script src="{{ asset('/sw.js') }}"></script>
     <script>
