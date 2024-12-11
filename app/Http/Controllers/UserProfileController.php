@@ -212,4 +212,18 @@ public function removeFromCart($id)
     return redirect()->back()->with('success', 'Item berhasil dihapus dari keranjang!');
 }
 
+public function addBalance(Request $request)
+{
+    $request->validate([
+        'amount' => 'required|integer|min:1',
+    ]);
+
+    $user = auth()->user();
+    $user->balance += $request->input('amount');
+    $user->save();
+
+    return response()->json(['success' => true]);
+}
+
+
 }

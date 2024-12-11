@@ -33,6 +33,9 @@
                         <a href="{{ route('chatbot') }}" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Tanya Emilia</a>
                     </li>
                     <li>
+                        <a href="#" id="addBalanceLink" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white">Add Balance</a>
+                    </li>
+                    <li>
                         <a
                             href="#"
                             onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
@@ -133,3 +136,69 @@
         }
     }
 </script>
+
+<div id="addBalanceModal" class="hidden fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
+    <div class="bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-xl font-semibold mb-4">Add Balance</h2>
+        <form id="addBalanceForm">
+            <div class="mb-4">
+                <label for="amount" class="block text-gray-700">Amount</label>
+                <input type="number" id="amount" name="amount" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+            </div>
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg">Add</button>
+            <button type="button" id="cancelButton" class="ml-2 bg-gray-500 text-white px-4 py-2 rounded-lg">Cancel</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const addBalanceLink = document.getElementById('addBalanceLink');
+        const addBalanceModal = document.getElementById('addBalanceModal');
+        const cancelButton = document.getElementById('cancelButton');
+        const form = document.getElementById('addBalanceForm');
+
+        addBalanceLink.addEventListener('click', function () {
+            addBalanceModal.classList.remove('hidden');
+        });
+
+        cancelButton.addEventListener('click', function () {
+            addBalanceModal.classList.add('hidden');
+        });
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const amount = document.getElementById('amount').value;
+
+            // Kirim request ke server untuk menambahkan balance
+            fetch('{{ route('add_balance') }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                },
+                body: JSON.stringify({ amount })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire({
+                        title: 'Success',
+                        text: 'Balance berhasil ditambahkan!',
+                        icon: 'success',
+                        confirmButtonText: 'OK'
+                    });
+                    addBalanceModal.classList.add('hidden');
+                } else {
+                    Swal.fire({
+                        title: 'Error',
+                        text: 'Terjadi kesalahan, coba lagi.',
+                        icon: 'error',
+                        confirmButtonText: 'OK'
+                    });
+                }
+            });
+        });
+    });
+</script>
+
