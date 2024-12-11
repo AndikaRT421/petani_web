@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('username')->unique()->after('id');
             $table->string('phone')->unique()->after('password');
             $table->string('picture')->nullable()->after('phone');
-            $table->decimal('balance', 15, 2)->default(100000000.00);
+            $table->decimal('balance', 15, 2)->default(0.00);
         });
     }
 

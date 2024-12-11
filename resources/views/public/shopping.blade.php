@@ -2,17 +2,17 @@
 
 @section('content')
 <div class="container mx-auto p-4" style="padding-top: 9rem; padding-bottom: 5rem;">
-    <div class="flex justify-between items-center mb-4">
-        <!-- Search Bar -->
-        <form action="{{ route('belanja.search') }}" method="GET" class="w-full md:w-1/2">
+    <div class="flex justify-between items-center mb-4 ">
+        
+        <form action="{{ route('belanja.search') }}" method="GET" class="w-full md:w-1/2 md:flex-1">
             <input type="text" name="search" placeholder="Cari barang..." value="{{ request('search') }}" class="w-full p-2 border rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-500" />
             <button type="submit" class="hidden">Cari</button>
         </form>
         
-        <!-- Sort By Price -->
+       
         <div class="ml-4">
             <form action="{{ route('belanja.search') }}" method="GET" class="flex items-center">
-                <select class="ml-4 p-2 border rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-500" id="sort-price" name="sort_price" onchange="this.form.submit()">
+                <select name="sort_price" class="ml-4 p-2 border rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-500" onchange="this.form.submit()">
                     <option value="terendah" {{ request('sort_price') === 'terendah' ? 'selected' : '' }}>Harga: Terendah</option>
                     <option value="tertinggi" {{ request('sort_price') === 'tertinggi' ? 'selected' : '' }}>Harga: Tertinggi</option>
                 </select>
@@ -20,17 +20,20 @@
         </div>
     </div>
     
-    <!-- Product Grid -->
+    
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         @php
             $sortedFiles = $files;
 
-            // Sorting based on query parameter
             $sortPrice = request()->query('sort_price') ?? 'terendah';
             if ($sortPrice === 'terendah') {
-                $sortedFiles = $sortedFiles->sortBy('price');
+                $sortedFiles = $sortedFiles->sortBy(function ($file) {
+                    return $file->price - ($file->price * ($file->discount / 100));
+                });
             } else {
-                $sortedFiles = $sortedFiles->sortByDesc('price');
+                $sortedFiles = $sortedFiles->sortByDesc(function ($file) {
+                    return $file->price - ($file->price * ($file->discount / 100));
+                });
             }
         @endphp
 
