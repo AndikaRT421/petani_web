@@ -66,7 +66,7 @@ After accessing the PETANI website on your device, you will be directed to the l
 
 **Login Page**
 
-<div style="display: flex; justify-content: space-between;">
+<div align=center style="display: flex; justify-content: center;">
   <img src="https://github.com/user-attachments/assets/01469222-a098-4a1d-9a31-02d3b68ffdf7" alt="user-login" style="width: 45%; margin-right: 5px;">
   <img src="https://github.com/user-attachments/assets/e87efe36-44ba-469b-b717-8af2008212d6" alt="partner-login" style="width: 45%; margin-right: 5px;">
 </div>
@@ -75,7 +75,7 @@ The login page allows registered users to log in as either a User or a Partner. 
 
 **Registration Page**
 
-<div style="display: flex; justify-content: space-between;">
+<div align=center style="display: flex; justify-content: center;">
   <img src="https://github.com/user-attachments/assets/21d6801a-fcb5-4074-9ca8-7423bdee2e58" alt="user-register" style="width: 45%; margin-right: 5px;">
   <img src="https://github.com/user-attachments/assets/1c64c785-87ef-4faf-8d41-2abbbd2e3365" alt="partner-register" style="width: 45%; margin-right: 5px;">
 </div>
@@ -118,7 +118,7 @@ The Ask Emilia page provides users with access to a virtual assistant powered by
 
 **Ask Emilia Page**
 
-<div style="display: flex; justify-content: space-between;">
+<div align=center style="display: flex; justify-content: center;">
   <img src="https://github.com/user-attachments/assets/8eea12b5-64c0-4135-aada-90340db56430" alt="tanya-emilia-1" style="width: 45%; margin-right: 5px;">
   <img src="https://github.com/user-attachments/assets/b4ae48be-b51d-4feb-ba8c-6bd66fcef04c" alt="tanya-emilia-2" style="width: 45%; margin-right: 5px;">
 </div>
